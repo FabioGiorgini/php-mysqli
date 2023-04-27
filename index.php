@@ -5,9 +5,12 @@ require_once __DIR__.'/classes/Department.php';
 
 $error = null;
 try {
+    //open db connection
     $connection = new ConnectionMyDB(DB_SERVERNAME, DB_USERNAME, DB_PASSWORD, DB_NAME);
+    //handle departments
     $department = new Department($connection);
 
+    //get the id if exists or null
     $id = $_GET['id'] ?? null;
 
     if($id){
